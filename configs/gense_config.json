@@ -1,0 +1,50 @@
+{   
+    "data_params":{
+        "train_manifest":{
+            "clean_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/train/clean.manifest",
+            "noise_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/train/noise.manifest",
+            "rir_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/train/rir.manifest",
+            "cutlen_dur_sec":5
+        },
+        "val_manifest":{
+            "clean_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/valid/clean.manifest",
+            "noise_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/valid/noise.manifest",
+            "rir_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/valid/rir.manifest",
+            "cutlen_dur_sec":5
+        },
+        "test_manifest":{
+            "clean_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/test/clean.manifest",
+            "noise_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/test/noise.manifest",
+            "rir_manifest":"/users/PAS2301/kumar1109/SimCodec_DATA_manifests/debug/test/rir.manifest",
+            "cutlen_dur_sec":5
+        }
+    },
+    
+    "training_params":{
+        "save_dir":"/users/PAS2301/kumar1109/SimCodec_ckpt/debug",
+        "batchsize":16,
+        "gpu":0,
+        "accum_grad":1,
+        "learning_rate":0.0001,
+        "epochs":100,
+        "experiment":"simcodec_training",
+        "suffix":"default"
+    },
+
+    "simcodec_params":{
+        "dim" : 512,
+        "n_codes":1024,
+        "n_groups":2,
+        "codebook_loss_lambda":1.0,
+        "commitment_loss_lambda":0.1
+    },
+
+    "discriminator_params":{
+        "filters":64,
+        "in_channels": 1, 
+        "out_channels": 1,
+        "n_ffts": [2048, 1024, 512, 400], 
+        "hop_lengths": [512, 256, 128, 100],
+        "win_lengths": [2048, 1024, 512, 400]
+    }
+}

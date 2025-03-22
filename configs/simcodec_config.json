@@ -1,0 +1,36 @@
+{   
+    "data_params":{
+        "train_root": "/fs/ess/PAS2301/Data/Speech/LibriSpeech/train-clean-100",
+        "val_root": "/fs/ess/PAS2301/Data/Speech/LibriSpeech/train-clean-100",
+        "test_root": "/fs/ess/PAS2301/Data/Speech/LibriSpeech/train-clean-100",
+        "cutlen_dur_sec":5
+    },
+    
+    "training_params":{
+        "save_dir":"/users/PAS2301/kumar1109/SimCodec_ckpt/debug",
+        "batchsize":16,
+        "gpu":0,
+        "accum_grad":4,
+        "learning_rate":0.0001,
+        "epochs":10,
+        "experiment":"simcodec_training",
+        "suffix":"default"
+    },
+
+    "simcodec_params":{
+        "dim" : 512,
+        "n_codes":1024,
+        "n_groups":2,
+        "codebook_loss_lambda":1.0,
+        "commitment_loss_lambda":0.1
+    },
+
+    "discriminator_params":{
+        "filters":64,
+        "in_channels": 1, 
+        "out_channels": 1,
+        "n_ffts": [2048, 1024, 512, 400], 
+        "hop_lengths": [512, 256, 128, 100],
+        "win_lengths": [2048, 1024, 512, 400]
+    }
+}
